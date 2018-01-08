@@ -27,7 +27,9 @@ class ContiCaspar(object):
                 "caspar_port" : 5250,
                 "playlist_length" : 5,
             }
-        self.settings.update(kwargs)
+        for key in kwargs:
+            if key in self.settings:
+               self.settings[key] = kwargs[key]
 
         self.should_run = True
         self.running_threads = 0
